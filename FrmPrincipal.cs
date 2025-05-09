@@ -19,7 +19,7 @@ namespace ProjetoHelpDesk
 
         private void btnEntrar_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Eita trem doido!");
         }
     }
 }
