@@ -42,7 +42,7 @@
             // 
             // btnEntrar
             // 
-            this.btnEntrar.Location = new System.Drawing.Point(148, 301);
+            this.btnEntrar.Location = new System.Drawing.Point(30, 301);
             this.btnEntrar.Name = "btnEntrar";
             this.btnEntrar.Size = new System.Drawing.Size(119, 32);
             this.btnEntrar.TabIndex = 0;
@@ -124,7 +124,7 @@
             // 
             // btnSair
             // 
-            this.btnSair.Location = new System.Drawing.Point(30, 301);
+            this.btnSair.Location = new System.Drawing.Point(155, 301);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(112, 32);
             this.btnSair.TabIndex = 7;
