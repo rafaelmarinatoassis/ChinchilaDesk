@@ -19,7 +19,30 @@ namespace ProjetoHelpDesk
 
         private void btnEntrar_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Eita trem doido!");
+            
         }
+
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            DialogResult resultado = MessageBox.Show(
+                "Você realmente deseja sair?",
+                "Confirmação",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (resultado == DialogResult.Yes)
+            {
+                Application.Exit(); // Encerra o aplicativo
+            }
+        }
+
+        private void btnCadastrar_Click(object sender, EventArgs e)
+        {
+            this.Hide(); // Oculta a janela principal
+            FrmCadastrar frm = new FrmCadastrar();
+            frm.ShowDialog(); // Abre o formulário de forma modal
+            this.Show(); // Reexibe a janela principal depois que FrmCadastrar for fechado
+        }
+
     }
 }
