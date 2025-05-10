@@ -42,7 +42,7 @@
             // 
             // btnEntrar
             // 
-            this.btnEntrar.Location = new System.Drawing.Point(30, 301);
+            this.btnEntrar.Location = new System.Drawing.Point(30, 305);
             this.btnEntrar.Name = "btnEntrar";
             this.btnEntrar.Size = new System.Drawing.Size(119, 32);
             this.btnEntrar.TabIndex = 0;
@@ -54,11 +54,12 @@
             // 
             this.labelUsuario.AutoSize = true;
             this.labelUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelUsuario.Location = new System.Drawing.Point(25, 169);
+            this.labelUsuario.Location = new System.Drawing.Point(25, 173);
             this.labelUsuario.Name = "labelUsuario";
             this.labelUsuario.Size = new System.Drawing.Size(93, 25);
             this.labelUsuario.TabIndex = 1;
             this.labelUsuario.Text = "Usuário";
+            this.labelUsuario.Click += new System.EventHandler(this.labelUsuario_Click);
             // 
             // panelLogin
             // 
@@ -90,31 +91,34 @@
             // 
             this.labelSenha.AutoSize = true;
             this.labelSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSenha.Location = new System.Drawing.Point(25, 238);
+            this.labelSenha.Location = new System.Drawing.Point(25, 242);
             this.labelSenha.Name = "labelSenha";
             this.labelSenha.Size = new System.Drawing.Size(79, 25);
             this.labelSenha.TabIndex = 3;
             this.labelSenha.Text = "Senha";
+            this.labelSenha.Click += new System.EventHandler(this.labelSenha_Click);
             // 
             // txtUsuario
             // 
             this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsuario.Location = new System.Drawing.Point(30, 197);
+            this.txtUsuario.Location = new System.Drawing.Point(30, 201);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(237, 29);
             this.txtUsuario.TabIndex = 4;
+            this.txtUsuario.TextChanged += new System.EventHandler(this.txtUsuario_TextChanged);
             // 
             // txtSenha
             // 
             this.txtSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSenha.Location = new System.Drawing.Point(30, 266);
+            this.txtSenha.Location = new System.Drawing.Point(30, 270);
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.Size = new System.Drawing.Size(237, 29);
             this.txtSenha.TabIndex = 5;
+            this.txtSenha.TextChanged += new System.EventHandler(this.txtSenha_TextChanged);
             // 
             // btnCadastrar
             // 
-            this.btnCadastrar.Location = new System.Drawing.Point(30, 339);
+            this.btnCadastrar.Location = new System.Drawing.Point(30, 343);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(237, 27);
             this.btnCadastrar.TabIndex = 6;
@@ -124,7 +128,7 @@
             // 
             // btnSair
             // 
-            this.btnSair.Location = new System.Drawing.Point(155, 301);
+            this.btnSair.Location = new System.Drawing.Point(155, 305);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(112, 32);
             this.btnSair.TabIndex = 7;

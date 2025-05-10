@@ -19,7 +19,11 @@ namespace ProjetoHelpDesk
 
         private void btnEntrar_Click(object sender, EventArgs e)
         {
-            
+            DialogResult resultado = MessageBox.Show(
+                "Você realmente deseja sair?",
+                "Confirmação",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
         }
 
         private void btnSair_Click(object sender, EventArgs e)
@@ -44,5 +48,24 @@ namespace ProjetoHelpDesk
             this.Show(); // Reexibe a janela principal depois que FrmCadastrar for fechado
         }
 
+        private void labelUsuario_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSenha_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtUsuario_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelSenha_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
