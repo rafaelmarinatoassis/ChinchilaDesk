@@ -19,11 +19,7 @@ namespace ProjetoHelpDesk
 
         private void btnEntrar_Click(object sender, EventArgs e)
         {
-            DialogResult resultado = MessageBox.Show(
-                "Você realmente deseja sair?",
-                "Confirmação",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question);
+
         }
 
         private void btnSair_Click(object sender, EventArgs e)
