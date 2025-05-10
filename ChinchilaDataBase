@@ -1,0 +1,93 @@
+CREATE DATABASE dbChinchilaDesk;
+
+CREATE TABLE usuarios (
+    id_usuario INT PRIMARY KEY,
+    nome VARCHAR(255),
+    email VARCHAR(255),
+    senha_hash VARCHAR(255),
+    tipo_usuario VARCHAR(20) CHECK (tipo_usuario IN ('comum', 'tecnico', 'gestor', 'admin')),
+    status VARCHAR(10) CHECK (status IN ('ativo', 'inativo')),
+    data_criacao DATETIME,
+    ultimo_login DATETIME
+);
+
+CREATE TABLE categorias (
+    id_categoria INT PRIMARY KEY,
+    nome VARCHAR(255),
+    descricao VARCHAR(255)
+);
+
+CREATE TABLE prioridades (
+    id_prioridade INT PRIMARY KEY,
+    nome VARCHAR(255),
+    tempo_sla_horas INT
+);
+
+CREATE TABLE filas (
+    id_fila INT PRIMARY KEY,
+    nome_fila VARCHAR(255),
+    responsavel_fila INT,
+    FOREIGN KEY (responsavel_fila) REFERENCES usuarios(id_usuario)
+);
+
+CREATE TABLE chamados (
+    id_chamado INT PRIMARY KEY,
+    titulo VARCHAR(255),
+    descricao TEXT,
+    data_abertura DATETIME,
+    prazo_sla DATETIME,
+    data_encerramento DATETIME,
+    status VARCHAR(20) CHECK (status IN ('aberto', 'em_atendimento', 'pendente', 'resolvido', 'encerrado')),
+    id_usuario_criador INT,
+    id_tecnico_atribuido INT,
+    id_categoria INT,
+    id_fila INT,
+    id_prioridade INT,
+    FOREIGN KEY (id_usuario_criador) REFERENCES usuarios(id_usuario),
+    FOREIGN KEY (id_tecnico_atribuido) REFERENCES usuarios(id_usuario),
+    FOREIGN KEY (id_categoria) REFERENCES categorias(id_categoria),
+    FOREIGN KEY (id_fila) REFERENCES filas(id_fila),
+    FOREIGN KEY (id_prioridade) REFERENCES prioridades(id_prioridade)
+);
+
+CREATE TABLE historico_chamados (
+    id_historico INT PRIMARY KEY,
+    id_chamado INT,
+    data_evento DATETIME,
+    descricao_evento TEXT,
+    status_anterior VARCHAR(20) CHECK (status_anterior IN ('aberto', 'em_atendimento', 'pendente', 'resolvido', 'encerrado')),
+    status_novo VARCHAR(20) CHECK (status_novo IN ('aberto', 'em_atendimento', 'pendente', 'resolvido', 'encerrado')),
+    responsavel INT,
+    FOREIGN KEY (id_chamado) REFERENCES chamados(id_chamado),
+    FOREIGN KEY (responsavel) REFERENCES usuarios(id_usuario)
+);
+
+CREATE TABLE comentarios (
+    id_comentario INT PRIMARY KEY,
+    id_chamado INT,
+    id_usuario INT,
+    comentario TEXT,
+    data_comentario DATETIME,
+    tipo VARCHAR(20) CHECK (tipo IN ('publico', 'tecnico', 'interno')),
+    FOREIGN KEY (id_chamado) REFERENCES chamados(id_chamado),
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario)
+);
+
+CREATE TABLE anexos (
+    id_anexo INT PRIMARY KEY,
+    id_chamado INT,
+    nome_arquivo VARCHAR(255),
+    caminho_arquivo VARCHAR(255),
+    data_upload DATETIME,
+    FOREIGN KEY (id_chamado) REFERENCES chamados(id_chamado)
+);
+
+CREATE TABLE avaliacoes (
+    id_avaliacao INT PRIMARY KEY,
+    id_chamado INT,
+    nota INT,
+    comentario TEXT,
+    data_avaliacao DATETIME,
+    FOREIGN KEY (id_chamado) REFERENCES chamados(id_chamado)
+);
+
